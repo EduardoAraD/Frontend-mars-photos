@@ -1,11 +1,13 @@
 import React from 'react'
 import { useAuth } from '../contexts/auth'
 
+import '../styles/components/header.css'
+
 export default function Header () {
   const { user } = useAuth()
   return (
-        <header>
-            <h1>{user}</h1>
+        <header className="header">
+            <h1>Olá {user}</h1>
         </header>
   )
 }
