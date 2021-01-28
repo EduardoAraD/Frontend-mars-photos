@@ -1,0 +1,48 @@
+#page-dashboard {
+    height: 100vh;
+}
+
+#page-dashboard .content {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+#page-dashboard .content h1 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#page-dashboard .content .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#page-dashboard .content .cards .card {
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+    padding: 4px;
+    background-color: #ededed;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#page-dashboard .content .cards .card img {
+    max-height: 200px;
+    max-width: 200px;
+    height: auto;
+    width: auto;
+}
+
+#page-dashboard .content .cards .card h3 {
+    margin-top: 10px;
+    font-weight: 400;
+    color: #651FFF;
+}
