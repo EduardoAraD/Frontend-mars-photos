@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/auth'
 
-import '../styles/login.css'
+import '../styles/pages/login.css'
 
 export default function App () {
   const { login } = useAuth()
