@@ -7,7 +7,7 @@ export default function Header () {
   const { user } = useAuth()
   return (
         <header className="header">
-            <h1>Olá {user}</h1>
+            <h1>Olá {user.name}</h1>
         </header>
   )
 }

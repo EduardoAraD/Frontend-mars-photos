@@ -1,56 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Header from '../components/header'
 
+import { Photo } from '../models/Photo'
+import PhotoServices from '../services/photo'
+
 import '../styles/pages/dashboard.css'
 
-const data = [
-  {
-    id: 0,
-    img_url: 'https://upload.wikimedia.org/wikipedia/pt/d/d0/Ferrovi%C3%A1rioAC2019.png',
-    earth_date: '2020-01/20',
-    name: 'Photo Mars',
-    description: 'Photo em faege teste acom as tronatos e seus espetaculos estraordinarios.'
-  }, {
-    id: 1,
-    img_url: 'https://upload.wikimedia.org/wikipedia/pt/d/d0/Ferrovi%C3%A1rioAC2019.png',
-    earth_date: '2020-01/20',
-    name: 'Photo Mars',
-    description: 'Photo em faege teste acom as tronatos e seus espetaculos estraordinarios.'
-  }, {
-    id: 2,
-    img_url: 'https://upload.wikimedia.org/wikipedia/pt/d/d0/Ferrovi%C3%A1rioAC2019.png',
-    earth_date: '2020-01/20',
-    name: 'Photo Mars',
-    description: 'Photo em faege teste acom as tronatos e seus espetaculos estraordinarios.'
-  }, {
-    id: 3,
-    img_url: 'https://upload.wikimedia.org/wikipedia/pt/d/d0/Ferrovi%C3%A1rioAC2019.png',
-    earth_date: '2020-01/20',
-    name: 'Photo Mars',
-    description: 'Photo em faege teste acom as tronatos e seus espetaculos estraordinarios.'
-  }, {
-    id: 4,
-    img_url: 'https://upload.wikimedia.org/wikipedia/pt/d/d0/Ferrovi%C3%A1rioAC2019.png',
-    earth_date: '2020-01/20',
-    name: 'Photo Mars',
-    description: 'Photo em faege teste acom as tronatos e seus espetaculos estraordinarios.'
-  }
-]
-
 export default function Dashboard () {
+  const [photos, setPhotos] = useState<Photo[]>([])
+  // const [page, setPage] = useState(1)
+  const page = 1
+  const limit = 20
+
+  async function loadingData () {
+    const data = await PhotoServices.getPhotos(limit, page)
+    if (data.photos.length > 0) {
+      setPhotos(data.photos)
+      console.log(data.photos)
+    } else {
+      console.log(data.error)
+    }
+  }
+
+  useEffect(() => {
+    loadingData()
+  }, [])
+
   return (
         <div id="page-dashboard">
             <Header />
             <div className="content">
               <h1>Fotos de Marte</h1>
               <div className="cards">
-                { data.map(item => {
+                { photos.map(item => {
                   return (
                     <Link to={`/photo/${item.id}`} key={item.id} className="card">
-                        <img src={item.img_url} alt={item.name} />
-                        <h3>{item.name}</h3>
+                      <div className="card-img" >
+                        <img src={item.url} alt={`${item.id}`} />
+                      </div>
+                      <h3>{`${item.date} - ${item.id}`}</h3>
                     </Link>
                   )
                 })}

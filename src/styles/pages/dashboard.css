@@ -12,6 +12,7 @@
 #page-dashboard .content h1 {
     font-weight: 500;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #page-dashboard .content .cards {
@@ -32,6 +33,14 @@
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+}
+
+#page-dashboard .content .cards .card .card-img {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #page-dashboard .content .cards .card img {
