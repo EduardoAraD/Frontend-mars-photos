@@ -7,6 +7,7 @@
     flex-direction: column;
     padding-right: 30px;
     padding-left: 30px;
+    margin-bottom: 30px;
 }
 
 #page-dashboard .content h1 {
@@ -18,6 +19,51 @@
 #page-dashboard .content .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width : 480px) {
+    #page-dashboard .content .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width : 480px) {
+    #page-dashboard .content .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 720px){
+    #page-dashboard .content .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 960px){
+    #page-dashboard .content .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    #page-dashboard .content .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 #page-dashboard .content .cards .card {
